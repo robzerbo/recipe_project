@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_project/components/favorite_button.dart';
 import 'package:recipe_project/models/meal.dart';
 
 class MealDetailScreen extends StatelessWidget {
@@ -98,12 +99,11 @@ class MealDetailScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(isFavorite(meal) ? Icons.star : Icons.star_border),
-        onPressed: () {
-          onToggleFavorite(meal);
-        },
-      ),
+      floatingActionButton: FavoriteButton(
+        meal: meal, 
+        onToggleFavorite: onToggleFavorite, 
+        isFavorite: isFavorite
+      ) 
     );
   }
 }
